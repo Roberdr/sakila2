@@ -26,7 +26,7 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width">
 
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="/sakila2/www/css/bootstrap.min.css">
 	<style>
 		body {
 			padding-top: 60px;
@@ -34,7 +34,7 @@
 		}
 	</style>
 
-	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="/sakila2/www/css/main.css">
 
 	<script src="js/libs/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 </head>
@@ -48,14 +48,43 @@
 <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
 
 <div class="navbar navbar-inverse navbar-fixed-top">
-	<div class="navbar-inner">
+	<?php $this->widget('bootstrap.widgets.TbNavbar', array(
+		'brandLabel' => 'Sakila',
+		'display' => null,
+		'items' => array(
+			array(
+				'class' => 'bootstrap.widgets.TbNav',
+				'items' => array(
+					array('label' => 'Films', 'url'=> array('/film/index')),
+					array('label' => 'Customers', 'url' => array('/customer/index')),
+					array('label' => 'Staff', 'url' => array('/staff/index')),
+					array('label' => 'Rental', 'url' => array('/rental/index')),
+				),
+			),
+			/*array(
+				'class' => 'bootstrap.widgets.TbActiveForm',
+				'layout' => 'TbHtml::FORM_LAYOUT_INLINE',
+				'items' => array(
+					TbHtml::textField('user', ''),
+
+				),
+			),*/
+			array(
+				'class' => 'bootstrap.widgets.TbNav',
+				'htmlOptions' => array('class' => 'pull-right'),
+				'items' => array(
+					array('label' => 'Login', 'url' => array('site/login'), 'visible'=>Yii::app()->user->isGuest),
+					array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+				),
+			),
+		),
+	)); ?>
+
+
+
+
+	<!--<div class="navbar-inner">
 		<div class="container">
-			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</a>
-			<a class="brand" href="#">Project name</a>
 
 			<div class="nav-collapse collapse">
 				<ul class="nav">
@@ -81,17 +110,24 @@
 					<button type="submit" class="btn">Sign in</button>
 				</form>
 			</div>
-			<!--/.nav-collapse -->
+
 		</div>
-	</div>
+	</div>-->
 </div>
+
+<?php if(isset($this->breadcrumbs)):?>
+	<?php $this->widget('zii.widgets.CBreadcrumbs', array(
+			'links'=>$this->breadcrumbs,
+		)); ?><!-- breadcrumbs -->
+<?php endif?>
 
 <?php echo $content; ?>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="js/libs/bootstrap.min.js"></script>
 <script src="js/plugins.js"></script>
-<script src="js/main.js"></script><script>
+<script src="js/main.js"></script>
+<script>
 	var _gaq = [
 		['_setAccount', 'UA-XXXXX-X'],
 		['_trackPageview']

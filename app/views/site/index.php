@@ -2,13 +2,10 @@
 
 	<!-- Main hero unit for a primary marketing message or call to action -->
 	<div class="hero-unit">
-		<h1>Hello, world!</h1>
+		<h1>Practicing with Sakila database</h1>
 
-		<p>This is a template for a simple marketing or informational website. It includes a large callout called the
-			hero unit and three supporting pieces of content. Use it as a starting point to create something more
-			unique.</p>
+		<p>This is a web application made for practicing my knowlegde of YiiFramework.</p>
 
-		<p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
 	</div>
 
 	<!-- Example row of columns -->
@@ -45,6 +42,7 @@
 	<hr>
 
 	<footer>
-		<p>&copy; Company 2012</p>
+		<p>&copy; Roberto Diaz 2012</p>
+		<?php echo Yii::app()->createAbsoluteUrl('') ?>
 	</footer>
 </div>

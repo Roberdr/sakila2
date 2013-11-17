@@ -11,4 +11,10 @@
  */
 require('./../app/lib/vendor/autoload.php');
 
-Yiinitializr\Helpers\Initializer::create('./../app', 'main', array('common', 'env', 'local'))->run();
+require('./../app/lib/vendor/yiisoft/yii/framework/yii.php');
+
+Yii::setPathOfAlias('Yiinitializr', './../app/lib/Yiinitializr');
+
+use Yiinitializr\Helpers\Initializer;
+
+Initializer::create('./../app', 'main', array('common', 'env', 'local'))->run();

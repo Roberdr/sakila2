@@ -48,7 +48,7 @@ return ArrayX::merge(array(
 		),
 		'urlManager' => array(
 			// uncomment the following if you have enabled Apache's Rewrite module.
-			'urlFormat' => 'path',
+			//'urlFormat' => 'path',
 			'showScriptName' => false,
 
 			'rules' => array(

@@ -26,7 +26,7 @@ return array(
 	),
 	'components' => array(
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=piscinas',
+			'connectionString' => 'mysql:host=localhost;dbname=sakila',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '',
